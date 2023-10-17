@@ -18,7 +18,7 @@ export const addTask = (name, description) => {
 
 export const getAllTasks = () => {
   return axios
-    .get("https://todo-app-backend-nu.vercel.app/api/todos/all-tasks")
+    .get(`${baseUrl}/all-tasks`, { withCredentials: true })
     .then((response) => response.data)
     .catch((error) => {
       throw error;
