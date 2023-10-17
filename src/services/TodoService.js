@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://todo-app-backend-nu.vercel.app/api/todos/";
+const baseUrl = "https://todo-app-backend-nu.vercel.app/api/todos";
 
 export const addTask = (name, description) => {
   const task = {
