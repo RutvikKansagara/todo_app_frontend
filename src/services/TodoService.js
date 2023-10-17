@@ -18,7 +18,7 @@ export const addTask = (name, description) => {
 
 export const getAllTasks = () => {
   return axios
-    .get(baseUrl)
+    .get(`${baseUrl}/all-tasks`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
