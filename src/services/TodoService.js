@@ -70,3 +70,4 @@ export const deleteAllTasks = () => {
       throw error;
     });
 };
+
