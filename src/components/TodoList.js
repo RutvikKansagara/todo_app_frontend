@@ -69,6 +69,7 @@ const TodoList = () => {
     deleteAllTasks()
       .then(() => {
         window.location.reload(true);
+        setData({ status: "", message: "", allTasks: [] })
       })
       .catch((error) => {
         console.log("error deleting task: " + error.message);
@@ -88,7 +89,7 @@ const TodoList = () => {
           setData(tasks);
         })
         .catch((error) => {
-          console.error("Error fetching tasks:", error.message);
+          console.error("Error fetching tasks:", error);
         });
     };
 
@@ -100,14 +101,14 @@ const TodoList = () => {
   return (
     <div className="max-w-xl mx-auto bg-white shadow-lg rounded-md p-6 mt-10 overflow-y-auto max-h-96">
       <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-      {data.allTasks.length > 0 && (
+      {data && data.allTasks && data.allTasks.length > 0 && (
         <button onClick={() => handledeleteAllTasks()} className="text-red-600">
           delete all tasks
         </button>
       )}
 
       <ul>
-        {data.allTasks.map((task) => (
+        {data && data.allTasks && data.allTasks.map((task) => (
           <li key={task._id} className="mb-4">
             <div className="bg-gray-100 p-4 rounded-md relative">
               <h2 className="text-lg font-semibold mb-2">{task.name}</h2>
@@ -152,7 +153,6 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
-      {data.allTasks.length === 0 && <h1>No Tasks Found...</h1>}
       {selectedTask && (
         <TaskDetailsModal task={selectedTask} onClose={handleCloseModal} />
       )}

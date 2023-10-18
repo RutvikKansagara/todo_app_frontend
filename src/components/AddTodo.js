@@ -27,42 +27,44 @@ const AddTodo = () => {
 
   return (
     <>
-      <div className="flex justify-around py-5">
-        <h1 className="text-5xl font-bold">Todo App</h1>
-      </div>
-      <div className="flex container mx-auto p-20  justify-around bg-orange-500">
-        <form id="taskForm" className="flex">
-          <div className="mb-4 mr-4">
-            <input
-              onChange={handleNameChange}
-              type="text"
-              id="task"
-              name="name"
-              value={name}
-              className="w-full px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:shadow-outline-blue"
-              placeholder="task name..."
-            />
-          </div>
-          <div className="mb-4 mr-4">
-            <input
-              onChange={handleDescriptionChange}
-              type="text"
-              id="description"
-              name="description"
-              value={description}
-              className="w-full px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:shadow-outline-blue"
-              placeholder="task description..."
-            ></input>
-          </div>
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="hidden p-3 px-3 bg-violet-500 text-white hover:bg-violet-700 rounded-full md:block"
-          >
-            Add Todo Task
-          </button>
-        </form>
-      </div>
+     <div className="flex flex-col items-center py-5">
+  <h1 className="text-5xl font-bold mb-8">Todo App</h1>
+
+  <form id="taskForm" className="flex flex-col items-center">
+    <div className="mb-4">
+      <input
+        onChange={handleNameChange}
+        type="text"
+        id="task"
+        name="name"
+        value={name}
+        className="w-full md:w-80 px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:shadow-outline-blue"
+        placeholder="Task name..."
+      />
+    </div>
+
+    <div className="mb-4">
+      <input
+        onChange={handleDescriptionChange}
+        type="text"
+        id="description"
+        name="description"
+        value={description}
+        className="w-full md:w-80 px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:shadow-outline-blue"
+        placeholder="Task description..."
+      />
+    </div>
+
+    <button
+      type="button"
+      onClick={handleSubmit}
+      className="p-3 px-6 bg-violet-500 text-white hover:bg-violet-700 rounded-full"
+    >
+      Add Todo Task
+    </button>
+  </form>
+</div>
+
     </>
   );
 };
